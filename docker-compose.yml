@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+
+  exchange_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: exchange_app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://postgres_db:5432/db_name
+      DB_USERNAME: db_user
+      DB_PASSWORD: db_password
+      EXCHANGE_API_KEY: 9efa3b05044ec203f0a83408abe56c2d
+      UPDATE_PERIOD: 3600000
+    depends_on:
+      - postgres_db
+
+  postgres_db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_password
+      POSTGRES_DB: db_name
+    ports:
+      - "5432:5432"

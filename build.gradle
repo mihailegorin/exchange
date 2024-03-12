@@ -21,6 +21,10 @@ dependencies {
         exclude group: 'commons-fileupload', module: 'commons-fileupload'
     }
 
+    // DB
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'org.liquibase:liquibase-core:4.26.0'
+
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
@@ -30,15 +34,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
     testCompileOnly 'org.projectlombok:lombok:1.18.30'
-    // https://mvnrepository.com/artifact/org.mockito/mockito-core
     testImplementation 'org.mockito:mockito-core:5.10.0'
     testImplementation 'org.mockito:mockito-junit-jupiter:5.10.0'
-
-
-    // DB
-    runtimeOnly 'org.postgresql:postgresql'
-    implementation 'org.liquibase:liquibase-core:4.26.0'
-
 
 }
 
